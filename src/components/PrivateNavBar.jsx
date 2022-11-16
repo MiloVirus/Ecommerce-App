@@ -1,12 +1,16 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Button, Flex, IconButton, Image, Text } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import logo from "../images/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { UserContext } from "../context/UserContext";
 
-const NavBar = () => {
+const PrivateNavBar = () => {
+
+  const {user, logout} = useContext(UserContext)
   const [onSwitch, setOnSwitch] = useState(false);
+  const navigate = useNavigate()
 
   const switchSelection = () => {
     setOnSwitch(!onSwitch);
@@ -18,6 +22,12 @@ const NavBar = () => {
       setOnSwitch(false);
     }
   };
+
+  const onLogout = () =>
+  {
+    logout()
+    navigate('/login')
+  }
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
@@ -85,7 +95,21 @@ const NavBar = () => {
           >
             Contact
           </Button>
-          <Link to="/registration" relative="path">
+          <Link to="/profile" relative="path">
+          <Button
+            cursor={"pointer"}
+            as="a"
+            color="#5A5A5A"
+            variant="ghost"
+            aria-label="contact"
+            my={5}
+            mx={2}
+            pr={9}
+            pl={9}
+            w="100%"
+          >
+            {user.name}
+          </Button></Link>
           <Button
             id="createAccount"
             cursor={"pointer"}
@@ -97,9 +121,10 @@ const NavBar = () => {
             pr={9}
             pl={9}
             w="100%"
+            onClick={onLogout}
           >
-            Create Account
-          </Button></Link>
+            Logout
+          </Button>
         </Flex>
 
         {
@@ -193,4 +218,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default PrivateNavBar;

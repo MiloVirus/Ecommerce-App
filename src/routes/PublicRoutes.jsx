@@ -3,8 +3,8 @@ import {Routes, Route} from 'react-router-dom'
 import NavBar from '../components/NavBar'
 import HomePage from '../pages/HomePage'
 import Products from '../pages/Products'
-import Footer from '../components/Footer'
 import Registration from '../pages/Registration'
+import Login from '../pages/Login'
 
 const PublicRoutes = () => {
   return (
@@ -14,8 +14,8 @@ const PublicRoutes = () => {
             <Route path="/" element={<HomePage/>} />
             <Route path="/products" element={<Products/>} />
             <Route path="/registration" element={<Registration/>} />
+            <Route path="/login" element={<Login/>} />
         </Routes>
-      <Footer/>
     </>
   )
 }

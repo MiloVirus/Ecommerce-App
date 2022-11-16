@@ -1,29 +1,48 @@
 import React from 'react'
+import { useState } from 'react';
 import {Box,
         Text,
         FormControl,
         FormLabel,
         Button,
         FormHelperText,
-        Input,
-        Link
+        Input
 } from '@chakra-ui/react'
+import { Link } from "react-router-dom";
+import { registerService } from '../services/userService';
 
 const Registration = () => {
+
+    const [name, setName] = useState("")
+    const [lastName, setLastName] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+
+    const submit = async(e) => 
+    {
+        e.preventDefault()
+        try {
+            const response = await registerService({name: name, lastName:lastName, email:email, password:password})
+            console.log(response)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+ 
   return (
     <>
-    <Box textAlign={"center"} marginTop="2%" fontFamily={'Rubik'}>
+    <Box textAlign={"center"} marginTop="2%" fontFamily={'Rubik'} color="#5A5A5A">
     <Text fontSize="1.6rem" fontWeight="medium">Create your account</Text>
-        <Box w={["90%","90%","60%","500px"]} m="auto" bg="gray.50" p={10} borderRadius="20px" fontFamily={'Rubik'} marginTop="2%" textAlign='center'>
+        <Box w={["90%","90%","60%","500px"]} m="auto" bg="gray.50" p={10} borderRadius="20px" fontFamily={'Rubik'} marginTop="2%" textAlign='center' >
         <FormControl>
             <FormLabel  paddingTop={3}>Name</FormLabel>
-                <Input bg="white" type='name' />
+                <Input value={name} bg="white" type='name' onChange={(e)=>setName(e.target.value)}/>
             <FormLabel  paddingTop={3}>Last Name</FormLabel>
-                <Input bg="white" type='lastName' />
+                <Input value={lastName} bg="white" type='lastName' onChange={(e)=>setLastName(e.target.value)}/>
             <FormLabel  paddingTop={3}>Email address</FormLabel>
-                <Input bg="white" type='email' />
+                <Input value={email} bg="white" type='email' onChange={(e)=>setEmail(e.target.value)}/>
             <FormLabel  paddingTop={3}>Password</FormLabel>
-                <Input bg="white" type='password' />  
+                <Input value={password} bg="white" type='password' onChange={(e)=>setPassword(e.target.value)}/>  
                 <FormHelperText>Password must be longer than 6 characters</FormHelperText>
                 <Button id="createAccount"
                 cursor={"pointer"}
@@ -34,12 +53,13 @@ const Registration = () => {
                 my={5}
                 pr={9}
                 pl={9}
-                w="40%">Submit</Button>
+                w="40%"
+                onClick={(e)=> submit(e)}>Submit</Button>
                 <Text>
                 Already have an account ?{' '}
-                <Link color='teal.500' href='#'>
-                    Login
-                </Link>
+                <Text as='a' color='teal.500'>
+                    <Link Link to="/login" relative="path">Login</Link>
+                </Text>
                 </Text>
         </FormControl>
         </Box>
