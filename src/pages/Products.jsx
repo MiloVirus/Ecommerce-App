@@ -7,7 +7,7 @@ import {
   Button,
   Checkbox,
 } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import {
   Accordion,
@@ -16,8 +16,12 @@ import {
   AccordionPanel,
   AccordionIcon,
 } from "@chakra-ui/react";
+import { UserContext } from "../context/UserContext";
+import { ProductContext } from "../context/ProductContext";
+import { Link } from "react-router-dom";
 
 const Products = () => {
+
   const [digi, setDigi] = useState([]);
   const [digiLists, setDigiLists] = useState([]);
   const [currentList, setCurrentList] = useState([]);
@@ -25,6 +29,8 @@ const Products = () => {
   const [permaCurrentList, setPermaCurrentList] = useState([]);
   const [combinedLevel, setCombinedLevel] = useState([]);
   const [digiFilter, setDigiFilter] = useState([]);
+  const {user, verifyToken} = useContext(UserContext)
+  const {products, total, getProducts} = useContext(ProductContext)
   const [checks, setChecks] = useState([
     { level: "Rookie", status: false },
     { level: "Champion", status: false },
@@ -39,6 +45,9 @@ const Products = () => {
   let arrayDigi = [];
 
   useEffect(() => {
+
+    verifyToken()
+    
     const callApi = async () => {
       const response = await axios.get(
         "https://digimon-api.vercel.app/api/digimon"
@@ -58,8 +67,12 @@ const Products = () => {
     };
 
     callApi();
-  }, []);
+  }, [verifyToken]);
 
+  useEffect(() => {
+    getProducts()
+  }, [getProducts])
+  
   const callArray = (index) => {
     console.log(digiLists);
     setDigiLists([...currentList[index]]);

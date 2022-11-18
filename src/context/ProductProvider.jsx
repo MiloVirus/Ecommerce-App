@@ -10,7 +10,7 @@ const initialState =
     products: [],
     total: 0,
     product: {},
-    car:[]
+    cart:[]
 
 }
 
@@ -25,14 +25,14 @@ function ProductProvider({children})
             try
             {
                 const response = await getProductsService()
-                const products = response.products.map((obj)=>
+                const products = response.products.map((item)=>
                 {
                     return{
-                        uid: obj._id,
-                        name: obj.name,
-                        description: obj.description,
-                        price: obj.price,
-                        imgUrl: obj.imgUrl
+                        uid: item._id,
+                        name: item.name,
+                        description: item.description,
+                        price: item.price,
+                        imgUrl: item.imgUrl
                     }
                 })
             
@@ -86,7 +86,7 @@ function ProductProvider({children})
         },[]
     )
 
-    const emptyCar = (car) =>
+    const emptyCart = (car) =>
     {
         dispatch(
             {
@@ -97,7 +97,7 @@ function ProductProvider({children})
     }
 
     return(
-        <ProductContext.Provider value={{products: productState.products, total: productState.total, getProduct, getProducts, emptyCar }}>
+        <ProductContext.Provider value={{products: productState.products, total: productState.total, getProduct, getProducts, emptyCart }}>
             {children}
         </ProductContext.Provider>
     )
