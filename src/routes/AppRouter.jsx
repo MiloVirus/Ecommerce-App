@@ -20,7 +20,7 @@ const AppRouter = () => {
   return (
     
         <Router>
-          { user.uid ? (<PrivateRoutes/>) : (<PublicRoutes/>) } 
+          { user ? (<PrivateRoutes/>) : (<PublicRoutes/>) } 
           <Footer/>
         </Router>
     

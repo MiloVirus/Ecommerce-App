@@ -4,10 +4,16 @@ const ProductReducer = (state , action) =>
 {
     switch(action.type)
     {
-        case types.GET_PRODUCT:
+        case types.GET_PRODUCTS:
             return{
                 ...state,
                 products: action.payload
+            }
+
+        case types.GET_PRODUCT:
+            return {
+                ...state,
+                product: action.payload
             }
             
 

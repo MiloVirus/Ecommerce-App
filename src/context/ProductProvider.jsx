@@ -1,5 +1,5 @@
 import {useReducer, useCallback} from 'react'
-import {ProductContext} from './ProductContext'
+import ProductContext from './ProductContext'
 import ProductReducer  from './ProductReducer'
 import { getProductsService, getProductByIdService} from '../services/productService'
 import { types } from '../types/types'
@@ -21,25 +21,28 @@ function ProductProvider({children})
     const [productState, dispatch] = useReducer(ProductReducer, initialState)
 
     const getProducts = useCallback(
-        async() => {
+        async () => {
             try
             {
                 const response = await getProductsService()
-                const products = response.products.map((item)=>
+
+                const products = response.map((item)=>
                 {
                     return{
                         uid: item._id,
                         name: item.name,
                         description: item.description,
                         price: item.price,
-                        imgUrl: item.imgUrl
+                        imgUrl: item.imgUrl,
+                        stock: item.stock,
+                        category: item.category
                     }
                 })
-            
+                console.log(products)
                 dispatch(
                     {
-                        type: types.GET_PRODUCT,
-                        payload:products
+                        type: types.GET_PRODUCTS,
+                        payload: products
                     }
                 )
 
@@ -49,21 +52,21 @@ function ProductProvider({children})
                         payload: response.total
                     }
                 )
+            
             }
             catch(error)
             {
                 console.log(error)
             }
         },[]
-    )
+    )   
 
     const getProduct = useCallback(
         async(uid) => {
-            try
-            {
-                const response = await getProductByIdService()
-                const products = 
-                {
+            
+                const response = await getProductByIdService(uid)
+                console.log(response)
+                const product = {
                         uid: response._id,
                         name: response.name,
                         description: response.description,
@@ -75,14 +78,9 @@ function ProductProvider({children})
                 dispatch(
                     {
                         type: types.GET_PRODUCT,
-                        payload:products
+                        payload: product
                     }
                 )
-            }
-            catch(error)
-            {
-                console.log(error)
-            }
         },[]
     )
 
@@ -95,9 +93,9 @@ function ProductProvider({children})
             }
         )
     }
-
+   
     return(
-        <ProductContext.Provider value={{products: productState.products, total: productState.total, getProduct, getProducts, emptyCart }}>
+        <ProductContext.Provider value={{products: productState.products, product: productState.product, total: productState.total, getProduct, getProducts, emptyCart }}>
             {children}
         </ProductContext.Provider>
     )
