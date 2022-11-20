@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/react-gh-pages/static/css/main.dc68a43c.css",
-    "main.js": "/react-gh-pages/static/js/main.2798b351.js",
-    "static/media/keyboards.png": "/react-gh-pages/static/media/keyboards.9452958fd37bd364ccae.png",
-    "static/media/Rubik-Regular.ttf": "/react-gh-pages/static/media/Rubik-Regular.974ab100afa4538622da.ttf",
-    "static/media/Rubik-Medium.ttf": "/react-gh-pages/static/media/Rubik-Medium.9eca2a21c16a15364ea0.ttf",
-    "static/media/Rubik-Bold.ttf": "/react-gh-pages/static/media/Rubik-Bold.12b9f128a901a8977a57.ttf",
-    "static/media/logo.png": "/react-gh-pages/static/media/logo.0a0fb32fa4cbe80b500a.png",
-    "static/media/Leopold.jpeg": "/react-gh-pages/static/media/Leopold.a0b0ce8b7a726836cbd1.jpeg",
-    "static/media/VarmiloMAC.jpeg": "/react-gh-pages/static/media/VarmiloMAC.661f43fcb8191b25cbfc.jpeg",
-    "static/media/Varmilo.jpeg": "/react-gh-pages/static/media/Varmilo.e7d0edab3631d3425d55.jpeg",
-    "static/media/avatar.jpg": "/react-gh-pages/static/media/avatar.ae67bd1e928bce4e3f48.jpg",
-    "static/media/Leopold2.jpeg": "/react-gh-pages/static/media/Leopold2.000e25a8fa4b08de8e94.jpeg",
-    "index.html": "/react-gh-pages/index.html",
-    "main.dc68a43c.css.map": "/react-gh-pages/static/css/main.dc68a43c.css.map",
-    "main.2798b351.js.map": "/react-gh-pages/static/js/main.2798b351.js.map"
+    "main.css": "/Ecommerce-app/static/css/main.0d40838d.css",
+    "main.js": "/Ecommerce-app/static/js/main.4417b391.js",
+    "static/media/keyboards.png": "/Ecommerce-app/static/media/keyboards.9452958fd37bd364ccae.png",
+    "static/media/Rubik-Regular.ttf": "/Ecommerce-app/static/media/Rubik-Regular.974ab100afa4538622da.ttf",
+    "static/media/Rubik-Medium.ttf": "/Ecommerce-app/static/media/Rubik-Medium.9eca2a21c16a15364ea0.ttf",
+    "static/media/Rubik-Bold.ttf": "/Ecommerce-app/static/media/Rubik-Bold.12b9f128a901a8977a57.ttf",
+    "static/media/logo.png": "/Ecommerce-app/static/media/logo.0a0fb32fa4cbe80b500a.png",
+    "static/media/Leopold.jpeg": "/Ecommerce-app/static/media/Leopold.a0b0ce8b7a726836cbd1.jpeg",
+    "static/media/VarmiloMAC.jpeg": "/Ecommerce-app/static/media/VarmiloMAC.661f43fcb8191b25cbfc.jpeg",
+    "static/media/Varmilo.jpeg": "/Ecommerce-app/static/media/Varmilo.e7d0edab3631d3425d55.jpeg",
+    "static/media/avatar.jpg": "/Ecommerce-app/static/media/avatar.ae67bd1e928bce4e3f48.jpg",
+    "static/media/Leopold2.jpeg": "/Ecommerce-app/static/media/Leopold2.000e25a8fa4b08de8e94.jpeg",
+    "index.html": "/Ecommerce-app/index.html",
+    "main.0d40838d.css.map": "/Ecommerce-app/static/css/main.0d40838d.css.map",
+    "main.4417b391.js.map": "/Ecommerce-app/static/js/main.4417b391.js.map"
   },
   "entrypoints": [
-    "static/css/main.dc68a43c.css",
-    "static/js/main.2798b351.js"
+    "static/css/main.0d40838d.css",
+    "static/js/main.4417b391.js"
   ]
 }
