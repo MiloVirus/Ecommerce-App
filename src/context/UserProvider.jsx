@@ -51,17 +51,20 @@ export const UserProvider = ({children}) => {
 
         window.localStorage.removeItem(process.env.REACT_APP_TOKEN)
 
-        setUser(null)
+        setUser({ id: null,
+          name: null});
     }
-
+    
     const verifyToken = useCallback( async () =>
     {
       const token = window.localStorage.getItem(process.env.REACT_APP_TOKEN)
-      if(token)
-      {
-        const data = await verifyTokenService()
-        window.localStorage.setItem(process.env.REACT_APP_TOKEN, token)
+      console.log(token)
 
+      if(token)
+      { 
+        const data = await verifyTokenService()
+        window.localStorage.setItem(token)
+        
         setUser({
           name: data.user.name,
           uid: data.user.uid

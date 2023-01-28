@@ -22,11 +22,6 @@ const Products = () => {
 
 
   useEffect(() => {
-
-    verifyToken()
-  }, [verifyToken]);
-
-  useEffect(() => {
     getProducts()
     
   }, [getProducts])
@@ -68,16 +63,24 @@ const Products = () => {
                     <Box className="digiLevel">
                       <Text fontSize={15}>{element.description}</Text>
                     </Box>
-                  <Flex flexShrink="0.3" className="digiLevel" justifyContent={"center"}>
+                  <Flex m={3} flexShrink="0.3" className="digiLevel" justifyContent={"center"}>
                     <Image width="400px" src={element.imgUrl}></Image>
                   </Flex>
-                  <Flex flexShrink="0.3" className="digiLevel" justifyContent={"center"}>
+                  <Box flexShrink="0.3" className="digiLevel" justifyContent={"center"}>
+                    <Box m={3}>
+                      <Text fontSize={25} fontWeight="medium">{element.price}.99$</Text>
+                    </Box>
+                    <Flex justifyContent={"center"}>
                     <NavLink to={`/products/${element.uid}`} className="button">
                     <Button fontWeight={'medium'} className='viewMore' bg="#7BE0AD" color="white" m={2}>
                       View More
                     </Button>
                     </NavLink>
-                  </Flex>
+                    <Button fontWeight={'medium'} className='viewMore' bg="#e0b0d5" color="white" m={2}>
+                      Add to cart
+                    </Button>
+                    </Flex>
+                  </Box>
                   </Box>
                 </Flex>
               </Box>

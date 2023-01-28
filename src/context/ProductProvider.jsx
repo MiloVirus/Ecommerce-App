@@ -11,7 +11,6 @@ const initialState =
     total: 0,
     product: {},
     cart:[]
-
 }
 
 
@@ -83,19 +82,54 @@ function ProductProvider({children})
                 )
         },[]
     )
+    const addProduct = async (uid) => {
 
-    const emptyCart = (car) =>
+
+        const response = await getProductByIdService(uid)
+        console.log(uid)
+        console.log(response)
+        const product = {
+          uid: response._id,
+          name: response.name,
+          description: response.description,
+          imgsUrl: response.imgsUrl,
+          price: response.price,
+          discount: response.discount,
+          discount_percentage: response.discount_percentage
+        };
+       
+        
+        const findProduct = productState.cart.find((product) => {
+          
+            return product.uid === uid  
+        })
+
+        console.log(findProduct);
+    
+        if (!findProduct) {
+          dispatch({
+            type: types.ADD_PRODUCT_CART,
+            payload: product,
+          });
+          console.log('producto añadido')
+        }else{
+          console.log('producto ya se encuentra añadido en el carrito')
+        }
+      };
+    
+
+    const emptyCart = (cart) =>
     {
         dispatch(
             {
                 type: types.DELETE_PRODUCT_CAR,
-                payload: car
+                payload: cart
             }
         )
     }
    
     return(
-        <ProductContext.Provider value={{products: productState.products, product: productState.product, total: productState.total, getProduct, getProducts, emptyCart }}>
+        <ProductContext.Provider value={{products: productState.products, product: productState.product, total: productState.total, cart:productState.cart, getProduct, getProducts, emptyCart, addProduct }}>
             {children}
         </ProductContext.Provider>
     )

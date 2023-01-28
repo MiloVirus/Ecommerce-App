@@ -12,7 +12,7 @@ const PublicRoutes = () => {
     <>
     <NavBar/>
         <Routes>
-            <Route path="/" element={<HomePage/>} />
+            <Route exact path="/" element={<HomePage/>} />
             <Route path="/products" element={<Products/>} />
             <Route path="/registration" element={<Registration/>} />
             <Route path="/login" element={<Login/>} />

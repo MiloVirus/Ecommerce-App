@@ -5,7 +5,7 @@ const URL_AUTH = `${process.env.REACT_APP_URL_API}/auth/login`
 const URL_USERS = `${process.env.REACT_APP_URL_API}/users`
 
 const ConfigHeader = {
-    headers:{'x-token' : window.localStorage.getItem(process.env.REACT_APP_TOKEN)}
+    headers:{'x-token' : localStorage.getItem(process.env.REACT_APP_TOKEN),}
 }
 
 
@@ -13,7 +13,7 @@ const ConfigHeader = {
 export const loginService = async(data) =>
 {
     const response = await axios.post(URL_AUTH, data)
-
+    console.log(response.data)
     return response.data;
 }
 
@@ -32,6 +32,7 @@ export const updateUserService = async(uid, data) =>
 
 export const verifyTokenService = async() =>
 {
-    const response = await axios.get(URL_USERS, ConfigHeader)
+    const response = await axios.get(`${URL_USERS}`, ConfigHeader)
+
     return response.data
 }

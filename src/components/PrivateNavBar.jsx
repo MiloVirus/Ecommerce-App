@@ -125,6 +125,21 @@ const PrivateNavBar = () => {
           >
             Logout
           </Button>
+          <Link to="/cart" relative="path">
+          <Button
+            cursor={"pointer"}
+            as="a"
+            color="#5A5A5A"
+            variant="ghost"
+            aria-label="contact"
+            my={5}
+            mx={2}
+            pr={9}
+            pl={9}
+            w="100%"
+          >
+            Cart
+          </Button></Link>
         </Flex>
 
         {

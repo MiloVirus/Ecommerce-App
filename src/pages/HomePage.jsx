@@ -1,5 +1,6 @@
 import React from 'react'
 import { Box, Button, Flex, Text, SimpleGrid, Image } from '@chakra-ui/react'
+import { Link } from 'react-router-dom'
 import leopold from '../images/Leopold.jpeg'
 import leopold2 from '../images/Leopold2.jpeg'
 import varmilo from '../images/Varmilo.jpeg'
@@ -17,7 +18,9 @@ const HomePage = () => {
                   </Text>
               </Box>
               <Box w="100%" alignSelf="center" align="center" p={5}>
+              <Link to="/products" relative="path">
                   <Button>View Products</Button>
+              </Link>
               </Box>
           </Flex>
       </Flex>
