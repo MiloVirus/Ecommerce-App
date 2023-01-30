@@ -63,7 +63,7 @@ export const UserProvider = ({children}) => {
       if(token)
       { 
         const data = await verifyTokenService()
-        window.localStorage.setItem(token)
+        window.localStorage.setItem("TOKEN",token)
         
         setUser({
           name: data.user.name,
