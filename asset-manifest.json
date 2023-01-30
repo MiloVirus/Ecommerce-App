@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Ecommerce-App/static/css/main.b78a2bfa.css",
-    "main.js": "/Ecommerce-App/static/js/main.e97a4249.js",
+    "main.js": "/Ecommerce-App/static/js/main.3869e902.js",
     "static/media/keyboards.png": "/Ecommerce-App/static/media/keyboards.9452958fd37bd364ccae.png",
     "static/media/Rubik-Regular.ttf": "/Ecommerce-App/static/media/Rubik-Regular.974ab100afa4538622da.ttf",
     "static/media/Rubik-Medium.ttf": "/Ecommerce-App/static/media/Rubik-Medium.9eca2a21c16a15364ea0.ttf",
@@ -14,10 +14,10 @@
     "static/media/Leopold2.jpeg": "/Ecommerce-App/static/media/Leopold2.000e25a8fa4b08de8e94.jpeg",
     "index.html": "/Ecommerce-App/index.html",
     "main.b78a2bfa.css.map": "/Ecommerce-App/static/css/main.b78a2bfa.css.map",
-    "main.e97a4249.js.map": "/Ecommerce-App/static/js/main.e97a4249.js.map"
+    "main.3869e902.js.map": "/Ecommerce-App/static/js/main.3869e902.js.map"
   },
   "entrypoints": [
     "static/css/main.b78a2bfa.css",
-    "static/js/main.e97a4249.js"
+    "static/js/main.3869e902.js"
   ]
 }
